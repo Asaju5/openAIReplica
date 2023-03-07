@@ -84,7 +84,7 @@ const handleSubmit = async (e) => {
   // messageDiv.innerHTML = "..."
   loader(messageDiv);
 
-  const response = await fetch("https://openai-yv1y.onrender.com/", {
+  const response = await fetch("https://openai-yv1y.onrender.com", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -100,7 +100,6 @@ const handleSubmit = async (e) => {
   if (response.ok) {
     const data = await response.json();
     const parsedData = data.bot.trim(); // trims any trailing spaces/'\n'
-    console.log({ parsedData });
 
     typeText(messageDiv, parsedData);
   } else {
